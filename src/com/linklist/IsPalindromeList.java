@@ -17,7 +17,11 @@ public class IsPalindromeList {
     }
 
 
-
+    /**
+     * 栈实现
+     * @param head 链表的头节点
+     * @return
+     */
     public static boolean isPalindromeList1(Node head){
         if (head == null) {
             return false;
@@ -39,6 +43,35 @@ public class IsPalindromeList {
     }
 
 
+
+
+    public static boolean linkedList(){
+        return true;
+    }
+
+
+
+    /**
+     * 返回中点（上中点）
+     * @param head
+     * @return
+     */
+    public Node midOrUpMidNode(Node head){
+        if (head == null || head.next == null || head.next.next == null) {
+            return head;
+        }
+        Node slow = head.next;
+        Node fast = head.next.next;
+        while (fast.next != null && fast.next.next != null) {
+            slow = head.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
+
+
+
     public static void main(String[] args) {
         Node node = null;
         node = new Node(1);
@@ -47,6 +80,6 @@ public class IsPalindromeList {
         node.next.next.next = new Node(2);
         node.next.next.next.next = new Node(2);
 
-        System.out.println(" 是否为回文.." + isPalindromeList1(node));
+        System.out.println(" 是否为回文..栈实现..." + isPalindromeList1(node));
     }
 }

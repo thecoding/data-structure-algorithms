@@ -2,6 +2,18 @@ package com.linklist;
 
 import java.util.ArrayList;
 
+
+/**
+ *
+ * 用案例 1-2-3-4分析
+ * 如果是返回中点，起点slow 从 head.next开始
+ *      如果是upMid，fast = head.next.next，用案例 1-2-3-4来分析，就是不能让他再移动了
+ *      如果是downMid，fast = head.next，用案例 1-2-3-4来分析，就是需要再跳一步
+ * 如果返回是中点上一个节点，起点 slow 从 head开始
+ *      如果是上中点的上一个节点，fast = head.next.next
+ *      如果是下中点的上一个节点, fast = head.next;
+ *
+ */
 public class LinkListMid {
 
     public static class Node{
@@ -13,7 +25,13 @@ public class LinkListMid {
         }
     }
 
-    //传入头结点 --> 返回中点(上中点)
+    /**
+     * 传入头结点 --> 返回中点(上中点)
+     * eg: 1-2-3-4 --> 2
+     * slow = head.next; fast = head.next.next;
+     * @param head
+     * @return
+     */
     public static Node midOrUpMidNode(Node head){
         if (head == null || head.next == null || head.next.next == null) {
             return head;
@@ -27,7 +45,14 @@ public class LinkListMid {
         return slow;
     }
 
-    // 返回的是下中点
+    /**
+     * 返回的是下中点
+     * eg: 1-2-3-4 --> 3
+     * 起始步骤： slow = head.next; fast = head.next;
+     * 然后移动一步： slow = head.next.next; -> 3  fast = head.next.next.next;  -> 4
+     * @param head
+     * @return
+     */
     public static Node midOrDownMidNode(Node head){
         if (head == null || head.next == null || head.next.next == null) {
             return head;
@@ -41,7 +66,14 @@ public class LinkListMid {
         return slow;
     }
 
-    // 返回上中点的上一个节点
+
+    /**
+     * 返回上中点的上一个节点
+     * eg: 1-2-3-4 --> 1
+     * 起始步骤： slow = head; -> 1 fast = head.next.next; ->3
+     * @param head
+     * @return
+     */
     public static Node midOrUpMidPreNode(Node head) {
         if (head == null || head.next == null || head.next.next == null) {
             return head;
@@ -55,7 +87,13 @@ public class LinkListMid {
         return slow;
     }
 
-    // 返回下中点的上一个节点
+    /**
+     * 返回下中点的上一个节点
+     * eg: 1-2-3-4 --> 2
+     * 起始步骤： slow = head; -> 1 fast = head.next; ->3
+     * @param head
+     * @return
+     */
     public static Node midOrDownMidPreNode(Node head) {
         if (head == null || head.next == null) {
             return null;
@@ -131,8 +169,8 @@ public class LinkListMid {
         node.next = new Node(2);
         node.next.next = new Node(3);
         node.next.next.next = new Node(4);
-        node.next.next.next.next = new Node(5);
-        node.next.next.next.next.next = new Node(6);
+//        node.next.next.next.next = new Node(5);
+//        node.next.next.next.next.next = new Node(6);
 //        node.next.next.next.next.next.next = new Node(7);
 //        node.next.next.next.next.next.next.next = new Node(8);
 //        node.next.next.next.next.next.next.next.next = new Node(9);
