@@ -114,8 +114,12 @@ public class IsPalindromeList {
     }
 
 
-
-
+    /**
+     * 给定一个单链表的头节点head，请判断该链表是否为回文结构。
+     * 1）哈希表方法特别简单（笔试用）
+     * 2）改原链表的方法就需要注意边界了（面试用）
+     * @param args
+     */
     public static void main(String[] args) {
         Node node = null;
         node = new Node(1);
