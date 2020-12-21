@@ -5,7 +5,7 @@ package com.linklist;
  * @Description 将链表中的数据分成 左边小  中间相等，右边大
  * @createTime 2020年12月05日 14:45:00
  */
-public class SmallerEqualsBigger {
+public class Code03_SmallerEqualsBigger {
     
     public static class Node{
         public int value;

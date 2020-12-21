@@ -8,7 +8,7 @@ import java.util.Map;
  * @Description
  * @createTime 2020年12月21日 23:18:00
  */
-public class CopyListWithRandom {
+public class Code04_CopyListWithRandom {
 
 
     /**

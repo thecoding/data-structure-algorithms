@@ -5,7 +5,7 @@ import java.util.Stack;
 /**
  * 链表是否为回文
  */
-public class IsPalindromeList {
+public class Code02_IsPalindromeList {
 
     public static class Node{
         public int value;

@@ -14,7 +14,7 @@ import java.util.ArrayList;
  *      如果是下中点的上一个节点, fast = head.next;
  *
  */
-public class LinkListMid {
+public class Code01_LinkListMid {
 
     public static class Node{
         public int value;
