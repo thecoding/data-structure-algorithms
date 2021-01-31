@@ -1,10 +1,9 @@
 package com.binary_tree;
 
-import com.sun.media.sound.SoftTuning;
 
-import javax.management.Query;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Stack;
 
 /**
  * 二叉树的序列化
@@ -84,6 +83,64 @@ public class Code04_SerializeAndReconstructTree {
         }
     }
 
+    /*******************以上是序列化***********************/
+
+
+    /*******************以下是反序列化***********************/
+
+
+    /**
+     * 先序反序列化
+     * @param pre
+     * @return
+     */
+    public static Node buildPreSer(Queue<Integer> pre) {
+        if (pre == null || pre.size() == 0) {
+            return null;
+        }
+        return bPre(pre);
+    }
+
+    private static Node bPre(Queue<Integer> pre) {
+        Integer poll = pre.poll();
+        if (poll == null) {
+            return null;
+        }
+        Node head = new Node(poll.intValue());
+        head.left = bPre(pre);
+        head.right = bPre(pre);
+        return head;
+    }
+
+
+    /**
+     * 后序-反序列化
+     * @param aft
+     * @return
+     */
+    public static Node buildAftPre(Queue<Integer> aft) {
+        if (aft == null || aft.size() == 0) {
+            return null;
+        }
+        //左右中 --> stack 中右左
+        Stack<Integer> integers = new Stack<>();
+        while (aft.size() > 0) {
+            integers.add(aft.poll());
+        }
+        return bAft(integers);
+    }
+
+    private static Node bAft(Stack<Integer> aft) {
+        Integer value = aft.pop();
+        if (value == null) {
+            return null;
+        }
+        Node head = new Node(value.intValue());
+        head.right = bAft(aft);
+        head.left = bAft(aft);
+        return head;
+    }
+
 
     public static void main(String[] args) {
         Node head = new Node(1);
@@ -102,7 +159,11 @@ public class Code04_SerializeAndReconstructTree {
         Queue<Integer> aft = aftSer(head);
         System.out.println(" 后序: "+ aft.toString());
 
+        Node buildPreSer = buildPreSer(pre);
+        System.out.println(" 先序反序列化 " + buildPreSer.toString());
 
+        Node buildAftPre = buildAftPre(aft);
+        System.out.println(" 后序反序列化.. " + buildAftPre.toString());
     }
 
 }
