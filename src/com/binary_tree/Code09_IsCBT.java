@@ -64,6 +64,7 @@ public class Code09_IsCBT {
      * 2、左边是满二叉树，右边是满二叉树，左边高度 = 右边高度+ 1
      * 3、左边是满二叉树，右边是满二叉树，左边高度 = 右边高度
      * 4、左边是满二叉树，右边是完全二叉树，左边高度 = 右边高度
+     *
      * -->  isFull 是否为满二叉树
      * -->  height 高度
      * --> isCBT 是否为完全二叉树
@@ -78,8 +79,23 @@ public class Code09_IsCBT {
         if (head == null) {
             return new Info(true, true, 0);
         }
-        //TODO 构建info
-        return new Info(false,false,0);
+        Info leftInfo = process(head.left);
+        Info rightInfo = process(head.right);
+
+        int height = Math.max(leftInfo.height, rightInfo.height) + 1;
+        //是否是满二叉树
+        boolean isFull = leftInfo.isFull && rightInfo.isFull && leftInfo.height == rightInfo.height;
+        boolean isCBT = false;
+        if (leftInfo.isCBT && rightInfo.isFull && leftInfo.height == rightInfo.height + 1) {
+            isCBT = true;
+        } else if (leftInfo.isFull && rightInfo.isFull && leftInfo.height == rightInfo.height + 1) {
+            isCBT = true;
+        } else if (leftInfo.isFull && rightInfo.isFull && leftInfo.height == rightInfo.height) {
+            isCBT = true;
+        } else if (leftInfo.isFull && rightInfo.isCBT && leftInfo.height == rightInfo.height) {
+            isCBT = true;
+        }
+        return new Info(isFull,isCBT,height);
     }
 
     public static class Info{
@@ -94,16 +110,44 @@ public class Code09_IsCBT {
         }
     }
 
+    // for test
+    public static Node generateRandomBST(int maxLevel, int maxValue) {
+        return generate(1, maxLevel, maxValue);
+    }
 
+    // for test
+    public static Node generate(int level, int maxLevel, int maxValue) {
+        if (level > maxLevel || Math.random() < 0.5) {
+            return null;
+        }
+        Node head = new Node((int) (Math.random() * maxValue));
+        head.left = generate(level + 1, maxLevel, maxValue);
+        head.right = generate(level + 1, maxLevel, maxValue);
+        return head;
+    }
 
     public static void main(String[] args) {
-        Node head = new Node(1);
-        head.left = new Node(2);
-        head.right = new Node(3);
-        head.left.left = new Node(4);
-        head.left.right = new Node(5);
-        head.right.left = new Node(6);
-        head.right.right = new Node(7);
-        System.out.println("isCBT : " + isCBT(head));
+        int maxLevel = 5;
+        int maxValue = 100;
+        int testTimes = 1000000;
+        for (int i = 0; i < testTimes; i++) {
+            Node head = generateRandomBST(maxLevel, maxValue);
+            if (isCBT(head) != isCBT2(head)) {
+                System.out.println("Oops!");
+            }
+        }
+        System.out.println("finish!");
     }
+
+//
+//    public static void main(String[] args) {
+//        Node head = new Node(1);
+//        head.left = new Node(2);
+//        head.right = new Node(3);
+//        head.left.left = new Node(4);
+//        head.left.right = new Node(5);
+//        head.right.left = new Node(6);
+//        head.right.right = new Node(7);
+//        System.out.println("isCBT : " + isCBT(head));
+//    }
 }
