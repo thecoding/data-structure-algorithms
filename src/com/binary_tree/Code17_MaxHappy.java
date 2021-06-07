@@ -3,7 +3,7 @@ package com.binary_tree;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Code16_MaxHappy {
+public class Code17_MaxHappy {
 
 	public static class Employee {
 		public int happy;
