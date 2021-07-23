@@ -1,5 +1,8 @@
 package com.union;
 
+import java.util.HashMap;
+import java.util.List;
+
 // class_15
 // 本题为leetcode原题
 // 测试链接：https://leetcode.com/problems/number-of-islands/
@@ -62,6 +65,67 @@ public class Code22_NumberOfIslands {
         }
         return board;
     }
+
+    public static class Dog{
+        int row;
+        int col;
+
+        public Dog(int row, int col) {
+            this.row = row;
+            this.col = col;
+        }
+    }
+
+    public static class Node<V>{
+        V v;
+        public Node(V v) {
+            this.v = v;
+        }
+    }
+
+    public static class UnionFind2<V> {
+        HashMap<V,Node<V>> nodes;
+        HashMap<Node<V>, Node<V>> parents;
+        HashMap<Node<V>, Integer> sizeMaps;
+
+        public UnionFind2(List<V> list) {
+            nodes = new HashMap<>();
+            parents = new HashMap<>();
+            sizeMaps = new HashMap<>();
+            for (V v : list) {
+                Node<V> node = new Node<>(v);
+                nodes.put(v, node);
+                parents.put(node, node);
+                sizeMaps.put(node, 1);
+            }
+        }
+
+        public Node<V> findFather(Node<V> node) {
+            //
+            while (node != parents.get(node)) {
+
+                node = parents.get(node);
+            }
+
+            return null;
+        }
+
+        public void union(V a1, V b1) {
+            Node<V> a = new Node<>(a1);
+            Node<V> b = new Node<>(b1);
+            // 如果父类不是同一个，比较size，size大的挂在小的节点上面
+            if (parents.get(a) != parents.get(b)) {
+                int aSize = sizeMaps.get(a);
+                int bSize = sizeMaps.get(b);
+                Node<V> big = aSize >= bSize ? a : b;
+                Node<V> small = big == a ? b : a;
+                parents.put(small, big);
+                sizeMaps.remove(small);
+            }
+        }
+
+    }
+
 
     public static void main(String[] args) {
         char[][] grid1 = {{'1','1','1','1','0'},{'1','1','0','1','0'},{'1','1','0','0','0'},{'0','0','0','0','0'}};
