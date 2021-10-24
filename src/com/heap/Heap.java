@@ -38,7 +38,9 @@ public class Heap {
         private void heapify(int[] heap, int index) {
             int left = index * 2 + 1;
             while (left < currSize) {
+                // 当前节点下，左右节点的最大值
                 int largest = left + 1 < currSize && heap[left + 1] > heap[left] ? left + 1 : left;
+                // 节点下最大的节点，跟当前节点进行对比，如果当前节点比下面的节点如果要大，就进行交换
                 largest = heap[largest] > heap[index] ? largest : index;
                 if (largest == index) {
                     break;
