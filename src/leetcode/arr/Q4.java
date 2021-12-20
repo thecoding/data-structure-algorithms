@@ -1,4 +1,4 @@
-package leetcode;
+package leetcode.arr;
 
 public class Q4 {
 
