@@ -22,13 +22,6 @@ public class Q18 {
         System.out.println(fourSum(nums, 0));
     }
 
-    // 入户阳台
-    // 橱柜   米板柜子  洗碗柜  出水口  电源
-    // 封窗  材质  断桥铝   500？ 纱窗150
-    // 刷墙
-    // 洗手台 阳台  洗衣机
-    // 窗帘 ？
-    // 改电
     public static List<List<Integer>> fourSum(int[] nums, int target) {
         if (nums == null || nums.length < 4) {
             return new ArrayList<>();
