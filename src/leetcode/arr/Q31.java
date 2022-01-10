@@ -17,13 +17,8 @@ import java.util.Arrays;
  */
 public class Q31 {
 
-    public static void main(String[] args) {
-//        int[] s = {5,4,3,2,1};
-//        Arrays.sort(s,1, s.length);
-//        for (int i : s) {
-//            System.out.print(i + ",");
-//        }
 
+    public static void main(String[] args) {
         int[] n = {3,2,5,3,2};
 //        int[] n = {1,2};
         nextPermutation(n);
@@ -31,13 +26,6 @@ public class Q31 {
             System.out.print(i + ",");
         }
         System.out.println();
-//
-//
-//        int[] reversal = {1,2,3,4,5,6};
-//        reversal(reversal,0, reversal.length - 1);
-//        for (int i : reversal) {
-//            System.out.println(i + ",");
-//        }
     }
 
     public static void nextPermutation(int[] nums) {
@@ -55,7 +43,6 @@ public class Q31 {
                         break;
                     }
                 }
-//                Arrays.sort(nums, i, nums.length);
                 reversal(nums, i, nums.length - 1);
                 return;
             }
