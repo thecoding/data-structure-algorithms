@@ -3,8 +3,8 @@ package leetcode.arr;
 public class Q4 {
 
     public static void main(String[] args) {
-        int[] nums1 = {};
-        int[] nums2 = {1};
+        int[] nums1 = {1,2};
+        int[] nums2 = {3,4};
         System.out.println(findMedianSortedArrays(nums1,nums2));
     }
 
