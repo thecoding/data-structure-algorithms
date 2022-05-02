@@ -8,7 +8,7 @@ package com.sort;
 public class SelectSort {
 
     public static void main(String[] args) {
-        int[] arr = {8, 2, 3, 4, 6, 5};
+        int[] arr = {8, 2, 3, 5, 6};
         int[] arrAfter = select(arr);
         for (int i : arrAfter) {
             System.out.print(i);
