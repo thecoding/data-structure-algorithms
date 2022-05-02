@@ -3,6 +3,7 @@ package com.sort;
 import java.util.Arrays;
 
 /**
+ * 快速排序
  * @author Mirko
  * @Description
  * @createTime 2021年03月29日 02:42:00
