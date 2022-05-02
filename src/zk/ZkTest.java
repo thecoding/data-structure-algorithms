@@ -60,6 +60,7 @@ public class ZkTest {
         }
         System.out.println("   ");
 
+        System.out.println("内部降序排列...");
         linkNode.sortDesc();
         cur = linkNode;
         while (cur != null) {
@@ -68,7 +69,7 @@ public class ZkTest {
         }
         System.out.println("   ");
 
-
+        System.out.println("内部升序排列...");
         linkNode.sortAsc();
         cur = linkNode;
         while (cur != null) {
@@ -76,8 +77,17 @@ public class ZkTest {
             cur = cur.next;
         }
         System.out.println("   ");
-    }
 
+        int removeValue = 13;
+        System.out.println("内部删除制定值 " + removeValue);
+        linkNode = linkNode.remove(removeValue);
+        cur = linkNode;
+        while (cur != null) {
+            System.out.print(cur.value + " ");
+            cur = cur.next;
+        }
+        System.out.println("   ");
+    }
 
 
 }
@@ -138,8 +148,22 @@ class LinkNode {
     }
 
     // 删除某元素
-    public void remove(int v) {
-
+    public LinkNode remove(int v) {
+        if (this.value == v) {
+            return next;
+        }
+        LinkNode pre = this;
+        LinkNode cur = next;
+        while (cur != null) {
+            if (cur.value == v) {
+                pre.next = cur.next;
+                break;
+            }else{
+                pre = pre.next;
+                cur = pre.next;
+            }
+        }
+        return this;
     }
 
     public void add(LinkNode node) {
