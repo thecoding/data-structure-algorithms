@@ -1,6 +1,7 @@
 package zk;
 
 
+import com.sort.ShellSort;
 import com.sun.org.apache.xml.internal.dtm.ref.sax2dtm.SAX2DTM2;
 
 /**
@@ -95,5 +96,24 @@ public class AllSort {
         return -1;
     }
 
+    /**
+     * 希尔排序
+     * @see ShellSort#shellSort(int[])
+     * @param arr 数组
+     * @return
+     */
+    public static int[] shellSort(int[] arr){
+        return arr;
+    }
+
+
+    /**
+     * 归并排序
+     * @param arr
+     * @return
+     */
+    public static int[] mergeSort(int[] arr) {
+        return arr;
+    }
 
 }

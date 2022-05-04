@@ -17,15 +17,18 @@ public class ShellSort {
         });
         System.out.println("");
        shellSort(arr);
+        Arrays.stream(arr).forEach(v -> {
+            System.out.print(v + ",");
+        });
     }
 
 
     public static int[] shellSort(int[] arr) {
         int length = arr.length;
         int temp;
-        int step = 4;
         int k = 0;
-//        for (int step = length / 2; step >= 1; step /= 2) {
+//        int step = 1;
+        for (int step = length / 2; step >= 1; step /= 2) {
             for (int i = step; i < length; i++) {
                 temp = arr[i];
                 int j = i - step;
@@ -42,7 +45,7 @@ public class ShellSort {
                 });
                 System.out.println("");
             }
-//        }
+        }
         return arr;
     }
 }
