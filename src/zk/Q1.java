@@ -1,8 +1,6 @@
 package zk;
 
 
-import java.util.Scanner;
-
 // 计算阶乘
 public class Q1 {
 

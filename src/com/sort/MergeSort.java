@@ -60,4 +60,29 @@ public class MergeSort {
             }
         }
     }
+
+
+    private static void merge2(int[] arr, int[] tmpArr, int start, int mid, int end) {
+        int l = start;
+        int r = mid + 1;
+        int t = 0;
+        while (l <= mid && r <= end) {
+            if (arr[l] < arr[r]) {
+                tmpArr[t++] = arr[l++];
+            }else{
+                tmpArr[t++] = arr[r++];
+            }
+        }
+        while (l <= mid) {
+            tmpArr[t++] = arr[l++];
+        }
+        while (r <= end) {
+            tmpArr[t++] = arr[r++];
+        }
+        t = 0;
+        while (start <= end) {
+            arr[start++] = tmpArr[t++];
+        }
+    }
+
 }

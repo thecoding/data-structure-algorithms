@@ -6,8 +6,8 @@ import java.util.*;
 
 public class InputTest {
 
-    private final int INPUT_LENGTH = 4;
-    private final String OUT_STR = "第%d位学生成绩为：%d %d %d %d \n";
+    private static final int INPUT_LENGTH = 4;
+    private static final String OUT_STR = "第%d位学生成绩为：%d %d %d %d \n";
     List<Integer[]> stuList = new ArrayList<>();
     Map<Integer, Integer> stuSumMap = new HashMap<>();
 
