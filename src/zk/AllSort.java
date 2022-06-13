@@ -45,15 +45,46 @@ public class AllSort {
 
 
     public static int[] bubblingSort(int[] arr) {
+        for (int i=0; i<arr.length -1;i++){
+            for(int j = 0; j < arr.length - 1 - i; j++){
+                if(arr[j] > arr[j + 1]){
+                    int tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = tmp;
+                }
+            }
+        }
         return arr;
     }
 
 
     public static int[] selectSort(int[] arr) {
+        for (int i = 0; i < arr.length; i++){
+            int tmp = i;
+            for (int j = i; j < arr.length; j++){
+                if(arr[tmp] > arr[j]){
+                    tmp = j;
+                }
+            }
+            if(tmp != i){
+                int cur = arr[i];
+                arr[i] = arr[tmp];
+                arr[tmp] = cur;
+            }
+        }
         return arr;
     }
 
     public static int[] insertSort(int[] arr){
+        for (int i = 1; i < arr.length; i++){
+            for (int j = i; j > 0; j--){
+                if(arr[j] < arr[j - 1]){
+                    int tmp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = tmp;
+                }
+            }
+        }
         return arr;
     }
 
@@ -67,13 +98,13 @@ public class AllSort {
      * @return 数字在数组中的下标
      */
     public static int binarySelect(int[] arr, int a) {
-        int left = 0, right = arr.length -1, mid = -1;
+        int left=0, right = arr.length - 1, mid = -1;
         while(left <= right){
             mid = left + ((right - left) >> 1);
-            if (arr[mid] == a) {
+            if(arr[mid] == a){
                 return mid;
             }else if(arr[mid] > a){
-                right = mid -1;
+                right = mid - 1;
             }else{
                 left = mid + 1;
             }
