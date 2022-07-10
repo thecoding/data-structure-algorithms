@@ -1,5 +1,8 @@
 package com.heap;
 
+/**
+ * 加强堆
+ */
 public class Heap {
 
     // 大根堆，通过数组实现
