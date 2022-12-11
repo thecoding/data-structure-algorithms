@@ -1,6 +1,6 @@
 package com.dp;
 
-public class CardsInLine {
+public class C2_CardsInLine {
 
     public static void main(String[] args) {
         int[] arr = { 5, 7, 4, 5, 8, 1, 6, 0, 3, 4, 6, 1, 7 };
